@@ -1,0 +1,761 @@
+/*==============================================================*/
+/* DBMS name:      ORACLE Version 19c                           */
+/* Created on:     12/12/2025 17:51:19                          */
+/*==============================================================*/
+
+
+alter table AERONAVE
+   drop constraint FK_AERONAVE_RELATIONS_ESTADOAE;
+
+alter table AEROPORTO
+   drop constraint FK_AEROPORT_LOCALIZAD_CIDADE;
+
+alter table AEROPORTO
+   drop constraint FK_AEROPORT_RELATIONS_PAIS;
+
+alter table BAGAGEM
+   drop constraint FK_BAGAGEM_PERTENCE_PASSAGEI;
+
+alter table BAGAGEM
+   drop constraint FK_BAGAGEM_RELATIONS_VOO;
+
+alter table CHECK_IN
+   drop constraint FK_CHECK_IN_RELATIONS_VOO;
+
+alter table CHECK_IN
+   drop constraint FK_CHECK_IN_RELATIONS_PASSAGEI;
+
+alter table ENVIA
+   drop constraint FK_ENVIA_RELATIONS_PASSAGEI;
+
+alter table ENVIA
+   drop constraint FK_ENVIA_RELATIONS_NOTIFICA;
+
+alter table ESCALA
+   drop constraint FK_ESCALA_RELATIONS_VOO;
+
+alter table ESCALA
+   drop constraint FK_ESCALA_RELATIONS_AEROPORT;
+
+alter table GERA
+   drop constraint FK_GERA_RELATIONS_RESERVA;
+
+alter table GERA
+   drop constraint FK_GERA_RELATIONS_NOTIFICA;
+
+alter table LUGAR
+   drop constraint FK_LUGAR_OCUPA_RESERVA;
+
+alter table LUGAR
+   drop constraint FK_LUGAR_POSSUI_AERONAVE;
+
+alter table RELATIONSHIP_7
+   drop constraint FK_RELATION_RELATIONS_VOO;
+
+alter table RELATIONSHIP_7
+   drop constraint FK_RELATION_RELATIONS_TRIPULAN;
+
+alter table RESERVA
+   drop constraint FK_RESERVA_PARA_VOO;
+
+alter table RESERVA
+   drop constraint FK_RESERVA_RELATIONS_PASSAGEI;
+
+alter table TRIPULANTE
+   drop constraint FK_TRIPULAN_TEM_FUNCAO;
+
+alter table VOO
+   drop constraint FK_VOO_EFETUA_AERONAVE;
+
+alter table VOO
+   drop constraint FK_VOO_ENCONTRA__ESTADOVO;
+
+alter table VOO
+   drop constraint FK_VOO_REALIZA_COMPANHI;
+
+alter table VOO
+   drop constraint FK_ORIGVOO_RELATIONS_AEROPORT;
+
+alter table VOO
+   drop constraint FK_DESTVOO_RELATIONS_AEROPORT;
+
+drop view VW_TRIP_VOO;
+
+drop view VW_PASSAGEIRO_RESERVA;
+
+drop view VW_INFO_VOO;
+
+drop view VW_BAGAGEM_PAX_VOO;
+
+drop view VW_AEROPORTO_LOCALIZ;
+
+drop index RELATIONSHIP_11_FK;
+
+drop table AERONAVE cascade constraints;
+
+drop index RELATIONSHIP_20_FK;
+
+drop index LOCALIZADO_FK;
+
+drop table AEROPORTO cascade constraints;
+
+drop index RELATIONSHIP_19_FK;
+
+drop index PERTENCE_FK;
+
+drop table BAGAGEM cascade constraints;
+
+drop index RELATIONSHIP_28_FK;
+
+drop index RELATIONSHIP_24_FK;
+
+drop table CHECK_IN cascade constraints;
+
+drop table CIDADE cascade constraints;
+
+drop table COMPANHIA cascade constraints;
+
+drop index RELATIONSHIP_33_FK;
+
+drop index RELATIONSHIP_32_FK;
+
+drop table ENVIA cascade constraints;
+
+drop index RELATIONSHIP_31_FK;
+
+drop index RELATIONSHIP_23_FK;
+
+drop table ESCALA cascade constraints;
+
+drop table ESTADOAERO cascade constraints;
+
+drop table ESTADOVOO cascade constraints;
+
+drop table FUNCAO cascade constraints;
+
+drop index RELATIONSHIP_30_FK;
+
+drop index RELATIONSHIP_29_FK;
+
+drop table GERA cascade constraints;
+
+drop index OCUPA_FK;
+
+drop index POSSUI_FK;
+
+drop table LUGAR cascade constraints;
+
+drop table NOTIFICACAO cascade constraints;
+
+drop table PAIS cascade constraints;
+
+drop table PASSAGEIRO cascade constraints;
+
+drop index RELATIONSHIP_8_FK;
+
+drop index RELATIONSHIP_7_FK;
+
+drop table RELATIONSHIP_7 cascade constraints;
+
+drop index RELATIONSHIP_27_FK;
+
+drop index PARA_FK;
+
+drop table RESERVA cascade constraints;
+
+drop index TEM_FK;
+
+drop table TRIPULANTE cascade constraints;
+
+drop index RELATIONSHIP_26_FK;
+
+drop index RELATIONSHIP_25_FK;
+
+drop index EFETUA_FK;
+
+drop index REALIZA_FK;
+
+drop index ENCONTRA_SE_FK;
+
+drop table VOO cascade constraints;
+
+/*==============================================================*/
+/* Table: AERONAVE                                              */
+/*==============================================================*/
+create table AERONAVE (
+   IDAERONAVE           INTEGER               not null,
+   CODESTAERO           INTEGER,
+   MODELO               CHAR(30),
+   CAPACIDADE           INTEGER,
+   FABRICANTE           CHAR(60),
+   constraint PK_AERONAVE primary key (IDAERONAVE)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_11_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_11_FK on AERONAVE (
+   CODESTAERO ASC
+);
+
+/*==============================================================*/
+/* Table: AEROPORTO                                             */
+/*==============================================================*/
+create table AEROPORTO (
+   CODAEROPORTO         INTEGER               not null,
+   IDCIDADE             INTEGER,
+   IDPAIS               INTEGER,
+   NOMEAERPORTO         CHAR(50),
+   constraint PK_AEROPORTO primary key (CODAEROPORTO)
+);
+
+/*==============================================================*/
+/* Index: LOCALIZADO_FK                                         */
+/*==============================================================*/
+create index LOCALIZADO_FK on AEROPORTO (
+   IDCIDADE ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_20_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_20_FK on AEROPORTO (
+   IDPAIS ASC
+);
+
+/*==============================================================*/
+/* Table: BAGAGEM                                               */
+/*==============================================================*/
+create table BAGAGEM (
+   RFID                 CHAR(50)              not null,
+   IDCIVIL              INTEGER,
+   CODVOO               INTEGER,
+   PESO                 NUMBER,
+   constraint PK_BAGAGEM primary key (RFID)
+);
+
+/*==============================================================*/
+/* Index: PERTENCE_FK                                           */
+/*==============================================================*/
+create index PERTENCE_FK on BAGAGEM (
+   IDCIVIL ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_19_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_19_FK on BAGAGEM (
+   CODVOO ASC
+);
+
+/*==============================================================*/
+/* Table: CHECK_IN                                              */
+/*==============================================================*/
+create table CHECK_IN (
+   CODVOO               INTEGER               not null,
+   IDCIVIL              INTEGER               not null,
+   DATAHORAIN           TIMESTAMP,
+   constraint PK_CHECK_IN primary key (CODVOO, IDCIVIL)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_24_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_24_FK on CHECK_IN (
+   CODVOO ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_28_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_28_FK on CHECK_IN (
+   IDCIVIL ASC
+);
+
+/*==============================================================*/
+/* Table: CIDADE                                                */
+/*==============================================================*/
+create table CIDADE (
+   IDCIDADE             INTEGER               not null,
+   NOMECIDADE           CHAR(50),
+   constraint PK_CIDADE primary key (IDCIDADE)
+);
+
+/*==============================================================*/
+/* Table: COMPANHIA                                             */
+/*==============================================================*/
+create table COMPANHIA (
+   SIGALC               CHAR(50)              not null,
+   NOMEC                CHAR(50),
+   NUMAVIOES            INTEGER,
+   constraint PK_COMPANHIA primary key (SIGALC)
+);
+
+/*==============================================================*/
+/* Table: ENVIA                                                 */
+/*==============================================================*/
+create table ENVIA (
+   IDCIVIL              INTEGER               not null,
+   IDNOTIFICACAO        INTEGER               not null,
+   constraint PK_ENVIA primary key (IDCIVIL, IDNOTIFICACAO)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_32_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_32_FK on ENVIA (
+   IDCIVIL ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_33_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_33_FK on ENVIA (
+   IDNOTIFICACAO ASC
+);
+
+/*==============================================================*/
+/* Table: ESCALA                                                */
+/*==============================================================*/
+create table ESCALA (
+   CODVOO               INTEGER               not null,
+   CODAEROPORTO         INTEGER               not null,
+   TEMPO                TIMESTAMP,
+   constraint PK_ESCALA primary key (CODVOO, CODAEROPORTO)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_23_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_23_FK on ESCALA (
+   CODVOO ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_31_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_31_FK on ESCALA (
+   CODAEROPORTO ASC
+);
+
+/*==============================================================*/
+/* Table: ESTADOAERO                                            */
+/*==============================================================*/
+create table ESTADOAERO (
+   CODESTAERO           INTEGER               not null,
+   DESCRESTAERO         CHAR(50),
+   constraint PK_ESTADOAERO primary key (CODESTAERO)
+);
+
+/*==============================================================*/
+/* Table: ESTADOVOO                                             */
+/*==============================================================*/
+create table ESTADOVOO (
+   CODESTVOO            INTEGER               not null,
+   DESCRESTVOO          CHAR(30),
+   constraint PK_ESTADOVOO primary key (CODESTVOO)
+);
+
+/*==============================================================*/
+/* Table: FUNCAO                                                */
+/*==============================================================*/
+create table FUNCAO (
+   CODFUNCAO            INTEGER               not null,
+   TIPOFUNCAO           CHAR(50),
+   constraint PK_FUNCAO primary key (CODFUNCAO)
+);
+
+/*==============================================================*/
+/* Table: GERA                                                  */
+/*==============================================================*/
+create table GERA (
+   IDRESERVA            INTEGER               not null,
+   IDNOTIFICACAO        INTEGER               not null,
+   constraint PK_GERA primary key (IDRESERVA, IDNOTIFICACAO)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_29_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_29_FK on GERA (
+   IDRESERVA ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_30_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_30_FK on GERA (
+   IDNOTIFICACAO ASC
+);
+
+/*==============================================================*/
+/* Table: LUGAR                                                 */
+/*==============================================================*/
+create table LUGAR (
+   NUMASSENTO           INTEGER               not null,
+   IDRESERVA            INTEGER               not null,
+   IDAERONAVE           INTEGER,
+   CLASSE               CHAR(20),
+   constraint PK_LUGAR primary key (NUMASSENTO)
+);
+
+/*==============================================================*/
+/* Index: POSSUI_FK                                             */
+/*==============================================================*/
+create index POSSUI_FK on LUGAR (
+   IDAERONAVE ASC
+);
+
+/*==============================================================*/
+/* Index: OCUPA_FK                                              */
+/*==============================================================*/
+create index OCUPA_FK on LUGAR (
+   IDRESERVA ASC
+);
+
+/*==============================================================*/
+/* Table: NOTIFICACAO                                           */
+/*==============================================================*/
+create table NOTIFICACAO (
+   IDNOTIFICACAO        INTEGER               not null,
+   TIPO                 CHAR(30),
+   MENSAGEM             CHAR(256),
+   DATAHORA             TIMESTAMP,
+   constraint PK_NOTIFICACAO primary key (IDNOTIFICACAO)
+);
+
+/*==============================================================*/
+/* Table: PAIS                                                  */
+/*==============================================================*/
+create table PAIS (
+   IDPAIS               INTEGER               not null,
+   NOMEPAIS             CHAR(50),
+   constraint PK_PAIS primary key (IDPAIS)
+);
+
+/*==============================================================*/
+/* Table: PASSAGEIRO                                            */
+/*==============================================================*/
+create table PASSAGEIRO (
+   IDCIVIL              INTEGER               not null,
+   NOME                 CHAR(100),
+   PASSAPORTE           CHAR(15),
+   DATANASCIM           DATE,
+   EMAIL                CHAR(100),
+   TELEMOVEL            CHAR(20),
+   constraint PK_PASSAGEIRO primary key (IDCIVIL)
+);
+
+/*==============================================================*/
+/* Table: RELATIONSHIP_7                                        */
+/*==============================================================*/
+create table RELATIONSHIP_7 (
+   CODVOO               INTEGER               not null,
+   IDTRIP               INTEGER               not null,
+   constraint PK_RELATIONSHIP_7 primary key (CODVOO, IDTRIP)
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_7_FK                                     */
+/*==============================================================*/
+create index RELATIONSHIP_7_FK on RELATIONSHIP_7 (
+   CODVOO ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_8_FK                                     */
+/*==============================================================*/
+create index RELATIONSHIP_8_FK on RELATIONSHIP_7 (
+   IDTRIP ASC
+);
+
+/*==============================================================*/
+/* Table: RESERVA                                               */
+/*==============================================================*/
+create table RESERVA (
+   IDRESERVA            INTEGER               not null,
+   IDCIVIL              INTEGER               not null,
+   CODVOO               INTEGER,
+   ESTARESERV           CHAR(30),
+   constraint PK_RESERVA primary key (IDRESERVA)
+);
+
+/*==============================================================*/
+/* Index: PARA_FK                                               */
+/*==============================================================*/
+create index PARA_FK on RESERVA (
+   CODVOO ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_27_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_27_FK on RESERVA (
+   IDCIVIL ASC
+);
+
+/*==============================================================*/
+/* Table: TRIPULANTE                                            */
+/*==============================================================*/
+create table TRIPULANTE (
+   IDTRIP               INTEGER               not null,
+   CODFUNCAO            INTEGER,
+   NOMETRIP             CHAR(50),
+   constraint PK_TRIPULANTE primary key (IDTRIP)
+);
+
+/*==============================================================*/
+/* Index: TEM_FK                                                */
+/*==============================================================*/
+create index TEM_FK on TRIPULANTE (
+   CODFUNCAO ASC
+);
+
+/*==============================================================*/
+/* Table: VOO                                                   */
+/*==============================================================*/
+create table VOO (
+   CODVOO               INTEGER               not null,
+   CODESTVOO            INTEGER,
+   SIGALC               CHAR(50),
+   CODAEROPORTO         INTEGER,
+   IDAERONAVE           INTEGER,
+   AER_CODAEROPORTO     INTEGER,
+   DATAHORACHEG         TIMESTAMP,
+   DATAHORAPART         TIMESTAMP,
+   constraint PK_VOO primary key (CODVOO)
+);
+
+/*==============================================================*/
+/* Index: ENCONTRA_SE_FK                                        */
+/*==============================================================*/
+create index ENCONTRA_SE_FK on VOO (
+   CODESTVOO ASC
+);
+
+/*==============================================================*/
+/* Index: REALIZA_FK                                            */
+/*==============================================================*/
+create index REALIZA_FK on VOO (
+   SIGALC ASC
+);
+
+/*==============================================================*/
+/* Index: EFETUA_FK                                             */
+/*==============================================================*/
+create index EFETUA_FK on VOO (
+   IDAERONAVE ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_25_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_25_FK on VOO (
+   CODAEROPORTO ASC
+);
+
+/*==============================================================*/
+/* Index: RELATIONSHIP_26_FK                                    */
+/*==============================================================*/
+create index RELATIONSHIP_26_FK on VOO (
+   AER_CODAEROPORTO ASC
+);
+
+/*==============================================================*/
+/* View: VW_AEROPORTO_LOCALIZ                                   */
+/*==============================================================*/
+create or replace view VW_AEROPORTO_LOCALIZ as
+create or replace view VW_AEROPORTO_LOCALIZ as
+select
+    a.CODAEROPORTO,
+    a.NOMEAERPORTO,
+    c.NOMECIDADE,
+    p.NOMEPAIS
+from AEROPORTO a
+    left join CIDADE c
+        on a.IDCIDADE = c.IDCIDADE
+    left join PAIS p
+        on a.IDPAIS = p.IDPAIS;
+
+with read only;
+
+/*==============================================================*/
+/* View: VW_BAGAGEM_PAX_VOO                                     */
+/*==============================================================*/
+create or replace view VW_BAGAGEM_PAX_VOO as
+create or replace view VW_BAGAGEM_PAX_VOO as
+select
+    b.RFID,
+    b.PESO,
+    p.IDCIVIL,
+    p.NOME,
+    v.CODVOO,
+    v.DATAHORAPART
+from BAGAGEM b
+    left join PASSAGEIRO p
+        on b.IDCIVIL = p.IDCIVIL
+    left join VOO v
+        on b.CODVOO = v.CODVOO;
+
+with read only;
+
+/*==============================================================*/
+/* View: VW_INFO_VOO                                            */
+/*==============================================================*/
+create or replace view VW_INFO_VOO as
+select 
+    v.CODVOO,
+    v.DATAHORAPART,
+    v.DATAHORACHEG,
+    est.DESCRESTVOO,
+    c.NOMEC,
+    a.MODELO,
+    ao1.NOMEAERPORTO,
+    ao2.NOMEAERPORTO
+from VOO v
+    left join COMPANHIA c on v.SIGALC = c.SIGALC
+    left join ESTADOVOO est on v.CODESTVOO = est.CODESTVOO
+    left join AERONAVE a on v.IDAERONAVE = a.IDAERONAVE
+    left join AEROPORTO ao1 on v.CODAEROPORTO = ao1.CODAEROPORTO
+    left join AEROPORTO ao2 on v.AER_CODAEROPORTO = ao2.CODAEROPORTO
+
+with read only;
+
+/*==============================================================*/
+/* View: VW_PASSAGEIRO_RESERVA                                  */
+/*==============================================================*/
+create or replace view VW_PASSAGEIRO_RESERVA as
+create or replace view VW_PASSAGEIRO_RESERVA as
+select
+    p.IDCIVIL,
+    p.NOME,
+    p.EMAIL,
+    p.TELEMOVEL,
+    p.PASSAPORTE,
+    r.IDRESERVA,
+    r.CODVOO,
+    r.ESTARESERV
+from PASSAGEIRO p
+    left join RESERVA r
+        on p.IDCIVIL = r.IDCIVIL;
+
+with read only;
+
+/*==============================================================*/
+/* View: VW_TRIP_VOO                                            */
+/*==============================================================*/
+create or replace view VW_TRIP_VOO as
+create or replace view VW_TRIP_VOO as
+select
+    rv.CODVOO,
+    t.IDTRIP,
+    t.NOMETRIP,
+    f.TIPOFUNCAO
+from RELATIONSHIP_7 rv
+    left join TRIPULANTE t
+        on rv.IDTRIP = t.IDTRIP
+    left join FUNCAO f
+        on t.CODFUNCAO = f.CODFUNCAO;
+
+with read only;
+
+alter table AERONAVE
+   add constraint FK_AERONAVE_RELATIONS_ESTADOAE foreign key (CODESTAERO)
+      references ESTADOAERO (CODESTAERO);
+
+alter table AEROPORTO
+   add constraint FK_AEROPORT_LOCALIZAD_CIDADE foreign key (IDCIDADE)
+      references CIDADE (IDCIDADE);
+
+alter table AEROPORTO
+   add constraint FK_AEROPORT_RELATIONS_PAIS foreign key (IDPAIS)
+      references PAIS (IDPAIS);
+
+alter table BAGAGEM
+   add constraint FK_BAGAGEM_PERTENCE_PASSAGEI foreign key (IDCIVIL)
+      references PASSAGEIRO (IDCIVIL);
+
+alter table BAGAGEM
+   add constraint FK_BAGAGEM_RELATIONS_VOO foreign key (CODVOO)
+      references VOO (CODVOO);
+
+alter table CHECK_IN
+   add constraint FK_CHECK_IN_RELATIONS_VOO foreign key (CODVOO)
+      references VOO (CODVOO);
+
+alter table CHECK_IN
+   add constraint FK_CHECK_IN_RELATIONS_PASSAGEI foreign key (IDCIVIL)
+      references PASSAGEIRO (IDCIVIL);
+
+alter table ENVIA
+   add constraint FK_ENVIA_RELATIONS_PASSAGEI foreign key (IDCIVIL)
+      references PASSAGEIRO (IDCIVIL);
+
+alter table ENVIA
+   add constraint FK_ENVIA_RELATIONS_NOTIFICA foreign key (IDNOTIFICACAO)
+      references NOTIFICACAO (IDNOTIFICACAO);
+
+alter table ESCALA
+   add constraint FK_ESCALA_RELATIONS_VOO foreign key (CODVOO)
+      references VOO (CODVOO);
+
+alter table ESCALA
+   add constraint FK_ESCALA_RELATIONS_AEROPORT foreign key (CODAEROPORTO)
+      references AEROPORTO (CODAEROPORTO);
+
+alter table GERA
+   add constraint FK_GERA_RELATIONS_RESERVA foreign key (IDRESERVA)
+      references RESERVA (IDRESERVA);
+
+alter table GERA
+   add constraint FK_GERA_RELATIONS_NOTIFICA foreign key (IDNOTIFICACAO)
+      references NOTIFICACAO (IDNOTIFICACAO);
+
+alter table LUGAR
+   add constraint FK_LUGAR_OCUPA_RESERVA foreign key (IDRESERVA)
+      references RESERVA (IDRESERVA);
+
+alter table LUGAR
+   add constraint FK_LUGAR_POSSUI_AERONAVE foreign key (IDAERONAVE)
+      references AERONAVE (IDAERONAVE);
+
+alter table RELATIONSHIP_7
+   add constraint FK_RELATION_RELATIONS_VOO foreign key (CODVOO)
+      references VOO (CODVOO);
+
+alter table RELATIONSHIP_7
+   add constraint FK_RELATION_RELATIONS_TRIPULAN foreign key (IDTRIP)
+      references TRIPULANTE (IDTRIP);
+
+alter table RESERVA
+   add constraint FK_RESERVA_PARA_VOO foreign key (CODVOO)
+      references VOO (CODVOO);
+
+alter table RESERVA
+   add constraint FK_RESERVA_RELATIONS_PASSAGEI foreign key (IDCIVIL)
+      references PASSAGEIRO (IDCIVIL);
+
+alter table TRIPULANTE
+   add constraint FK_TRIPULAN_TEM_FUNCAO foreign key (CODFUNCAO)
+      references FUNCAO (CODFUNCAO);
+
+alter table VOO
+   add constraint FK_VOO_EFETUA_AERONAVE foreign key (IDAERONAVE)
+      references AERONAVE (IDAERONAVE);
+
+alter table VOO
+   add constraint FK_VOO_ENCONTRA__ESTADOVO foreign key (CODESTVOO)
+      references ESTADOVOO (CODESTVOO);
+
+alter table VOO
+   add constraint FK_VOO_REALIZA_COMPANHI foreign key (SIGALC)
+      references COMPANHIA (SIGALC);
+
+alter table VOO
+   add constraint FK_ORIGVOO_RELATIONS_AEROPORT foreign key (CODAEROPORTO)
+      references AEROPORTO (CODAEROPORTO);
+
+alter table VOO
+   add constraint FK_DESTVOO_RELATIONS_AEROPORT foreign key (AER_CODAEROPORTO)
+      references AEROPORTO (CODAEROPORTO);
+

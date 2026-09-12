@@ -1,0 +1,27 @@
+jardim 5 5
+compra g
+compra a
+compra t
+lferr
+pega 1
+planta bb r
+planta cc c
+entra bb
+avanca 1
+e
+avanca 1
+larea
+e
+avanca 1
+e
+e
+e
+e
+e
+e
+e
+e
+e
+avanca 1
+colhe bb
+fim

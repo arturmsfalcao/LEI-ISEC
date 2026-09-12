@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "placar\\placar.vcxproj",
+        "Action": "StartWithoutDebugging"
+      },
+      {
+        "Path": "central\\central.vcxproj",
+        "Action": "StartWithoutDebugging"
+      }
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{Setup/template_isec_package}[2023/01/06 Template package]
+
+%--------------------------------------
+% package
+%
+
+\usepackage[T1]{fontenc}
+\usepackage[english,portuguese]{babel}
+
+% Tipo de letra do texto
+% Opção1
+\usepackage{tgpagella}
+% Opção2
+%\usepackage{fontspec}
+%\setmainfont{Garamond}
+
+% Uso do hífen
+\RequirePackage{hyphenat}
+\hyphenation{ma-te-m\'{a}-ti-ca 
+re-cu-pe-rar}
+
+% Margens
+\usepackage{geometry}
+%\geometry{paper=a4paper, 
+%	hmargin={2.54cm,2.54cm}, 
+%	vmargin={2.54cm,2.54cm}}
+\geometry{paper=a4paper, 
+	lmargin=2.54cm, rmargin=2.54cm, 
+	tmargin=2.54cm, bmargin=2.54cm}
+
+% Espaçamentos
+\usepackage{setspace}
+%\onehalfspacing
+\setstretch{1.2}
+
+% Índices
+\usepackage{tocloft}
+
+% Parágrafos
+%\usepackage[skip=5pt plus1pt, indent=15pt]{parskip}
+\usepackage[skip=5pt plus1pt]{parskip}
+
+% Imagens e figuras
+\usepackage{graphicx}
+%\graphicspath{ {./Figuras/} }
+
+% Incluir documentos em formato PDF
+\usepackage{pdfpages}
+
+% Cabeçalho e rodapé
+\usepackage{fancyhdr}
+\usepackage[fit]{truncate}
+
+% Cor
+\usepackage{xcolor}
+
+%--------------------------------------
+
+%--------------------------------------
+% newcommand etc.
+%
+
+% Índices - package tocloft
+\renewcommand{\cfttoctitlefont}{\bfseries\Large\scshape}
+\renewcommand{\cftlottitlefont}{\bfseries\Large\scshape}
+\renewcommand{\cftloftitlefont}{\bfseries\Large\scshape}
+
+\renewcommand{\cftchapfont}{\normalfont}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapleader}{\normalfont\cftdotfill{\cftchapdotsep}}
+
+% Cor vermelha do ISEC - package xcolor
+\definecolor{IsecVermelho}{RGB}{157, 0, 0}
+
+% Amostra de texto
+\newcommand{\amostradetexto}{Lorem ipsum dolor sit amet, 
+consectetuer adipiscing elit. Etiam lobortis facilisis sem. 
+Nullam nec mi et neque pharetra sollicitudin. Praesent imperdiet 
+mi nec ante. Donec ullamcorper, felis non sodales com modo, lectus
+ velit ultrices augue, a dignissim nibh lectus placerat pede. Vivamus
+  nunc nunc, molestie ut, ultricies vel, semper in, velit. Ut porttitor.
+   Praesent in sapien. Lorem ipsum dolor sit amet, consectetuer adipiscing
+    elit. Duis fringilla tristique neque. Sed interdum libero ut metus.
+     Pellentesque placerat. Nam rutrum augue a leo. Morbi sed elit sit
+      amet ante lobortis sollicitudin. Praesent blandit blandit mauris.
+       Praesent lectus tellus, aliquet aliquam, luctus a, egestas a, turpis.
+        Mauris lacinia lorem sit amet ipsum. 
+        Nunc quis urna dictum turpis accumsan semper.}
+
+%--------------------------------------
+

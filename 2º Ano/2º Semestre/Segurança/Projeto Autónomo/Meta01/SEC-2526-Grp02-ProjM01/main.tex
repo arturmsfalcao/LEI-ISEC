@@ -1,0 +1,87 @@
+
+\documentclass{Setup/template_isec_class}
+
+% Template ISEC/LaTeX, janeiro 2023
+%--------------------------------------
+\usepackage{Setup/template_isec_package}
+%--------------------------------------
+
+%--------------------------------------
+% Obs#1
+% Onde incluir todos os ficheiros (package)
+% e instruções adicionais para este projeto
+\usepackage{extras}
+%--------------------------------------
+
+\begin{document}
+
+%--------------------------------------
+% Obs#2
+% Definir qual o título e quais os autores do trabalho
+\newcommand{\titulotrabalho}{Sistema de Deteção e Prevenção de Intrusões}
+\newcommand{\autorestrabalho}{Artur Falcão \& Gabriel Rodrigues \& Rodrigo Prazeres}
+%--------------------------------------
+
+\pagestyle{empty}
+
+% Capa
+\includepdf{Inicio/capa}
+
+\newpage
+
+%--------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead{}
+\fancyhead[CO]{\nouppercase{\truncate{\headwidth}{\titulotrabalho}}}
+\fancyhead[CE]{\nouppercase{\autorestrabalho}}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot{}
+\fancyfoot[CO,CE]{\thepage}
+\setlength{\headheight}{14.5pt}
+\fancypagestyle{plain}{}
+%--------------------------------------
+
+\pagenumbering{roman}
+
+\renewcommand{\contentsname}{\'{I}ndice}
+
+\phantomsection
+\addcontentsline{toc}{chapter}{\'{I}ndice}
+\tableofcontents
+
+\newpage
+\pagenumbering{arabic}
+
+% Capítulo inicial
+% Introdução
+\input{Capitulos/introducao}
+
+% Capítulo 2
+\input{Capitulos/capitulo2}
+
+\newpage
+
+% Referências bibliográficas
+\phantomsection
+\addcontentsline{toc}{chapter}{Refer\^{e}ncias bibliogr\'{a}ficas}
+\renewcommand{\bibname}{Refer\^{e}ncias bibliogr\'{a}ficas}
+
+%-------------------
+% Obs#3
+% Descomentar uma das seguintes linhas, em alternativa, 
+% consoante o estilo pretendido para as referências bibliográficas
+\bibliographystyle{IEEEtran} % formatação segundo IEEE 
+%\bibliographystyle{apacite} % formatação segundo APA 
+%-------------------
+\bibliography{bibliografia}
+
+\newpage
+
+\thispagestyle{empty}
+
+% Última página
+\input{Setup/ultima_pagina}
+
+\end{document}
+

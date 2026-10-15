@@ -1,0 +1,19 @@
+[
+  {
+    "Name": "Novo Perfil",
+    "Projects": [
+      {
+        "Path": "central\\central.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "placar\\placar.vcxproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "monitor\\monitor.vcxproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

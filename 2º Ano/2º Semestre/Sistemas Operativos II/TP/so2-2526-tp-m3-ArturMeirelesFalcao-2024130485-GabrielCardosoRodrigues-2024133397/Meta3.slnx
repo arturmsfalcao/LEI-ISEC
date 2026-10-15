@@ -1,0 +1,9 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="central/central.vcxproj" Id="4829c729-ba52-4b2a-9276-b2ef075eee92" />
+  <Project Path="monitor/monitor.vcxproj" Id="2f6ce21c-5991-4d9e-a6c2-475b611a0182" />
+  <Project Path="placar/placar.vcxproj" Id="d35b55be-3193-4ff9-aa86-c326ace46fdc" />
+</Solution>

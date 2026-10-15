@@ -1,0 +1,13 @@
+# ninja log v6
+51	727	7837243913236479	CMakeFiles/Projeto_Meta1.dir/Visualizador.cpp.obj	4f6a75f276130a3d
+912	1066	7837243659603582	TRABALHO_FINAL.exe	d4d5805332c31384
+46	160	7837243913191236	CMakeFiles/Projeto_Meta1.dir/Ferramenta.cpp.obj	722cf9998607b08
+37	404	7837246293920576	build.ninja	e9ddf1275b9ff54c
+26	141	7837243912994763	CMakeFiles/Projeto_Meta1.dir/Posicao.cpp.obj	15861a0ccd598858
+33	145	7837243913054886	CMakeFiles/Projeto_Meta1.dir/Jardineiro.cpp.obj	b52928a976ebe7a5
+40	164	7837243913131084	CMakeFiles/Projeto_Meta1.dir/Planta.cpp.obj	b6520d92b277666f
+21	581	7837243912924405	CMakeFiles/Projeto_Meta1.dir/Jardim.cpp.obj	772cf717c452bc62
+3	704	7837243912748534	CMakeFiles/Projeto_Meta1.dir/main.cpp.obj	936cb8b866f7b3be
+16	721	7837243912884100	CMakeFiles/Projeto_Meta1.dir/Simulador.cpp.obj	f2744d826fbeb3b8
+10	793	7837243912821520	CMakeFiles/Projeto_Meta1.dir/LeitorComandos.cpp.obj	b1ed3ce61cf0611
+35	214	7837245566136989	Projeto_Meta1.exe	446e628dd1be6602

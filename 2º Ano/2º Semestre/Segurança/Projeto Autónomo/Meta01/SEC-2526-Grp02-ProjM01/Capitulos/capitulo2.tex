@@ -1,0 +1,19 @@
+
+% Segundo capítulo deste trabalho.
+%--------------------------------------
+\chapter{Proposta}
+
+O presente projeto tem como objetivo o estudo teórico e a análise experimental de um \textbf{Sistema de Deteção de Intrusões (IDS)} e de um \textbf{Sistema de Prevenção de Intrusões (IPS)}. Estas ferramentas assumem um papel de particular relevância na segurança ativa de infraestruturas, através da análise do tráfego de rede com o intuito de identificar padrões associados a ataques conhecidos ou comportamentos anómalos. Conforme referido, um \textbf{IDS} caracteriza-se por um modo de operação passivo, com capacidade de identificar eventos potencialmente maliciosos e emitir alertas para posterior análise. Em contraste, um \textbf{IPS} incorpora mecanismos de resposta automática, que permitem a interrupção, filtragem ou mitigação de tráfego classificado como malicioso, com vista à preservação da integridade, confidencialidade e disponibilidade dos sistemas.
+
+Entre as soluções de código aberto disponíveis, o motor \textbf{Suricata} destaca-se pelo seu elevado desempenho e suporte a Inspeção Profunda de Pacotes (Deep Packet Inspection – DPI). Neste contexto, o trabalho propõe a conceção e implementação de um guião laboratorial destinado a avaliar, de forma experimental, o funcionamento do Suricata em modo IDS e em modo IPS, bem como a sua eficácia na monitorização, deteção e eventual prevenção de ameaças \cite{suricata}.
+
+\textbf{Prevê-se a utilização de}:
+
+\begin{itemize}
+    \item Plataforma de simulação de redes (GNS3);
+    \item Máquina virtual com sistema operativo Linux;
+    \item Motor Suricata configurado com conjuntos de regras comunitárias;
+    \item Analisador de tráfego de rede (Wireshark) para captura e validação do tráfego analisado pelo IDS;
+    \item Ferramentas de monitorização de desempenho e visualização de alertas.
+\end{itemize}
+

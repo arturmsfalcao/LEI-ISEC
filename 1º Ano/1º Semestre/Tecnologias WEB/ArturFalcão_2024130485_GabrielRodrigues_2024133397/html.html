@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>British Airways</title>
+    <script src="script.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="imagens">
+        <a href="#" class="logo">
+            <img id="logo" src="img/logo.png" alt="" class="logo_img">
+        </a>
+        <a href="#" class="oneworld">
+            <img src="img/Oneworld_logo.svg.png" alt="" class="header_img">
+        </a>
+        </div>
+        <div class="icons">
+            <a href="#">
+            <div class="lupa">
+                <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M55.705 54.296L45.723 43.06c2.803-3.37 4.53-7.647 4.766-12.03.313-5.001-1.244-10.12-4.37-14.056-3.073-3.96-7.647-6.738-12.589-7.628-4.933-.928-10.185.03-14.484 2.632-4.297 2.589-7.618 6.764-9.098 11.573-1.506 4.787-1.218 10.115.856 14.695 2.038 4.6 5.804 8.362 10.382 10.437 4.575 2.092 9.893 2.403 14.694.937a2 2 0 00-1.167-3.826l-.009.002c-3.873 1.18-8.182.932-11.865-.756-3.684-1.668-6.748-4.722-8.384-8.426-1.674-3.69-1.904-8.006-.689-11.868 1.185-3.871 3.88-7.253 7.346-9.343 3.461-2.095 7.708-2.875 11.696-2.122a16.752 16.752 0 0110.162 6.16c2.525 3.175 3.777 7.3 3.527 11.348-.22 4.057-2.006 7.969-4.877 10.837l-.084.084-.073.078a1.889 1.889 0 00.157 2.666L54.29 55.71a1.004 1.004 0 001.415-1.415z"></path>
+                </svg>
+            </div>
+            </a>
+
+            <div class="menu" id="burguer" onclick="clickMenu()">
+            <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.976 12.134a232.34 232.34 0 014.353-.085c.76-.01 1.52-.02 2.281-.035L19.244 12c2.862.001 5.723.04 8.585.078 1.561.02 3.122.041 4.684.056 1.573.044 3.145.083 4.718.121 2.85.07 5.7.14 8.55.245l6.635.264c.775.044 1.55.083 2.324.123 1.436.073 2.873.146 4.31.247.564.039.988.519.949 1.071-.037.504-.45.894-.949.929-1.45.101-2.901.175-4.351.249-.761.039-1.522.077-2.283.12l-6.634.264c-2.862.107-5.724.177-8.585.247-1.562.038-3.123.076-4.684.12-1.552.015-3.104.035-4.655.056-2.872.038-5.743.076-8.614.077l-6.634-.014a431.02 431.02 0 00-2.302-.035c-1.444-.019-2.889-.038-4.332-.084-1.127-.037-2.012-.961-1.975-2.066.036-1.058.91-1.897 1.975-1.934zm4.353 17.915c.76-.01 1.52-.02 2.281-.035L19.244 30c2.862.001 5.723.04 8.585.078 1.561.02 3.123.041 4.684.056 1.573.044 3.145.083 4.718.121 2.85.07 5.7.14 8.55.245l6.635.264c.774.044 1.549.083 2.323.123h.001c1.437.073 2.873.146 4.31.247.564.039.988.519.949 1.071-.037.504-.45.894-.949.929-1.45.101-2.9.175-4.351.249-.761.039-1.522.077-2.283.12l-6.634.264c-2.862.107-5.724.177-8.585.247-1.562.038-3.123.076-4.684.12-1.552.015-3.103.035-4.655.056-2.872.038-5.743.076-8.614.077l-6.634-.014a431.02 431.02 0 00-2.302-.035c-1.444-.019-2.889-.038-4.332-.084-1.127-.037-2.012-.961-1.975-2.066.036-1.058.91-1.897 1.975-1.934a232.31 232.31 0 014.353-.085zm0 18c-1.451.019-2.902.038-4.353.085-1.065.037-1.939.876-1.975 1.934-.037 1.105.848 2.029 1.975 2.066 1.443.046 2.888.065 4.332.084.767.01 1.535.02 2.302.035l6.634.014c2.871-.001 5.742-.04 8.614-.077 1.551-.02 3.103-.041 4.655-.056 1.561-.044 3.122-.082 4.684-.12 2.861-.07 5.723-.14 8.585-.247l6.634-.264c.76-.043 1.522-.081 2.282-.12 1.45-.074 2.902-.148 4.352-.249.5-.035.912-.425.949-.929a1.01 1.01 0 00-.949-1.071c-1.436-.1-2.873-.174-4.31-.247-.775-.04-1.55-.08-2.324-.123l-6.634-.264c-2.85-.106-5.7-.175-8.55-.245-1.574-.038-3.146-.077-4.719-.121a1218.57 1218.57 0 01-4.684-.056A665.811 665.811 0 0019.244 48l-6.634.014c-.76.014-1.52.024-2.28.034z"></path>
+            </svg>
+            </div>
+
+            <a href="#">
+            <div class="login"> 
+                <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M53.133 54.537c.29.422.86.56 1.314.302a.998.998 0 00.38-1.363 26.621 26.621 0 00-4.099-5.466 26.18 26.18 0 00-5.45-4.22c-4.009-2.343-8.676-3.466-13.294-3.59-4.617-.04-9.364.908-13.535 3.145-4.175 2.21-7.704 5.568-10.16 9.614a1.999 1.999 0 003.406 2.098l.013-.02c2.12-3.393 5.118-6.267 8.628-8.21 3.515-1.957 7.543-2.946 11.648-3.028 4.101-.085 8.21.738 11.882 2.593 3.667 1.843 6.887 4.672 9.254 8.127l.013.018zM31.975 12c-5.502 0-9.978 4.475-9.978 9.977 0 5.501 4.476 9.977 9.978 9.977 5.501 0 9.976-4.476 9.976-9.977 0-5.502-4.475-9.977-9.976-9.977zm0 23.954c-7.707 0-13.978-6.27-13.978-13.977C17.997 14.27 24.268 8 31.975 8s13.976 6.27 13.976 13.977c0 7.707-6.269 13.977-13.976 13.977z"></path>
+                </svg>
+                <span class="text_login">Log In</span>
+            </div>
+            </a>
+        </div>
+    </header>
+
+    <div class="header-space"></div>
+    <div class="navc1" id="navc1">
+    <div class="navc" id="navc">
+        <a href="#">
+            <div class="login-tele" id="login"> 
+                <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M53.133 54.537c.29.422.86.56 1.314.302a.998.998 0 00.38-1.363 26.621 26.621 0 00-4.099-5.466 26.18 26.18 0 00-5.45-4.22c-4.009-2.343-8.676-3.466-13.294-3.59-4.617-.04-9.364.908-13.535 3.145-4.175 2.21-7.704 5.568-10.16 9.614a1.999 1.999 0 003.406 2.098l.013-.02c2.12-3.393 5.118-6.267 8.628-8.21 3.515-1.957 7.543-2.946 11.648-3.028 4.101-.085 8.21.738 11.882 2.593 3.667 1.843 6.887 4.672 9.254 8.127l.013.018zM31.975 12c-5.502 0-9.978 4.475-9.978 9.977 0 5.501 4.476 9.977 9.978 9.977 5.501 0 9.976-4.476 9.976-9.977 0-5.502-4.475-9.977-9.976-9.977zm0 23.954c-7.707 0-13.978-6.27-13.978-13.977C17.997 14.27 24.268 8 31.975 8s13.976 6.27 13.976 13.977c0 7.707-6.269 13.977-13.976 13.977z"></path>
+                </svg>
+                <span class="text_login">Log In</span>
+            </div>
+        </a>
+
+        <nav class="nav" id="nav">
+            <ul>
+                <li class="linha-tele"><a href="#" onclick="clickMenu1()" id="mence">Discover &nbsp
+                    <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.522 47.3c1.136-1.116 2.224-2.278 3.338-3.417l3.26-3.491c2.164-2.337 4.267-4.73 6.4-7.093 2.076-2.42 4.188-4.805 6.233-7.25 2.047-2.445 4.082-4.9 6.038-7.431a1.004 1.004 0 00-1.466-1.36c-2.378 2.137-4.677 4.348-6.963 6.57-2.288 2.22-4.51 4.504-6.768 6.752-2.2 2.303-4.43 4.578-6.6 6.908l-3.24 3.51c-.563.639-1.131 1.272-1.697 1.907-.566-.635-1.135-1.268-1.698-1.907l-3.24-3.51c-2.16-2.34-4.38-4.625-6.597-6.91-2.238-2.268-4.475-4.537-6.77-6.752l-3.443-3.32c-1.175-1.082-2.325-2.187-3.521-3.248a1.005 1.005 0 00-1.466 1.36c.97 1.273 1.988 2.5 2.98 3.75l3.056 3.682c2.039 2.452 4.136 4.85 6.232 7.25 2.115 2.382 4.23 4.764 6.402 7.092l3.26 3.49c1.115 1.14 2.203 2.302 3.339 3.419a2.088 2.088 0 002.93 0z"></path>
+                    </svg></a>
+                    <ul class="sub-menu1" id="menu1">
+                        <li>
+                            <h1>BA</h1>
+                            <a href="#">About BA</a><br>
+                            <a href="#">BA Better World</a><br>
+                            <a href="#">The BA experience</a><br>
+                            <a href="#">Travel classes</a><br>
+                            <a href="#">Whats new</a><br>
+                            <a href="#">Business travel</a><br>
+                            <a href="#">Partners and alliances</a>
+                        </li>
+                        <li>
+                            <h1>Executive Club</h1>
+                            <a href="#">Join the Club</a><br>
+                            <a href="#">About the Club</a><br>
+                            <a href="#">About Avios</a><br>
+                            <a href="#">Collecting Avios</a><br>
+                            <a href="#">Spending Avios</a>
+                        </li>
+                        <li>
+                            <h1>Flights and destinations</h1>
+                            <a href="#">Explore our  destinations</a><br>
+                            <a href="#">Flights to London</a><br>
+                            <a href="#">Flights to New York</a><br>
+                            <a href="#">Routes and timetables</a><br>
+                            <a href="#">Before you fly</a><br>
+                            <a href="#">Baggage essentials</a><br>
+                            <a href="#">Airport information</a>
+                        </li>
+                        <li>
+                            <h1>Holidays</h1>
+                            <a href="#">Discover BA holidays</a><br>
+                            <a href="#">New York holidays</a><br>
+                            <a href="#">London city breaks</a>
+                        </li>
+                        <li>
+                            <h1>Offers and deals</h1>
+                            <a href="#">Find our cheapest flights</a>
+                        </li>
+                        <li>
+                            <h1>Extras</h1>
+                            <a href="#">London airport hotels</a><br>
+                            <a href="#">Travel insurance</a><br>
+                            <a href="#">Meet and assist</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="linha-tele"><a href="#" onclick="clickMenu2()">Book &nbsp
+                    <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.522 47.3c1.136-1.116 2.224-2.278 3.338-3.417l3.26-3.491c2.164-2.337 4.267-4.73 6.4-7.093 2.076-2.42 4.188-4.805 6.233-7.25 2.047-2.445 4.082-4.9 6.038-7.431a1.004 1.004 0 00-1.466-1.36c-2.378 2.137-4.677 4.348-6.963 6.57-2.288 2.22-4.51 4.504-6.768 6.752-2.2 2.303-4.43 4.578-6.6 6.908l-3.24 3.51c-.563.639-1.131 1.272-1.697 1.907-.566-.635-1.135-1.268-1.698-1.907l-3.24-3.51c-2.16-2.34-4.38-4.625-6.597-6.91-2.238-2.268-4.475-4.537-6.77-6.752l-3.443-3.32c-1.175-1.082-2.325-2.187-3.521-3.248a1.005 1.005 0 00-1.466 1.36c.97 1.273 1.988 2.5 2.98 3.75l3.056 3.682c2.039 2.452 4.136 4.85 6.232 7.25 2.115 2.382 4.23 4.764 6.402 7.092l3.26 3.49c1.115 1.14 2.203 2.302 3.339 3.419a2.088 2.088 0 002.93 0z"></path>
+                    </svg></a>
+                    <ul class="sub-menu2" id="menu2">
+                        <li>
+                            <h1>Flights</h1>
+                            <a href="#">Book a flight</a><br>
+                            <a href="#">Book a flight with Avios</a>
+                        </li>
+                        <li>
+                            <h1>Flights and more</h1>
+                            <a href="#">Flight + Hotel</a><br>
+                            <a href="#">Flight + Car</a><br>
+                            <a href="#">Find a hotel</a><br>
+                            <a href="#">Hire a car</a><br>
+                            <a href="#">Book and experience</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="linha-tele"><a href="#" onclick="clickMenu3()">Manage &nbsp
+                    <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.522 47.3c1.136-1.116 2.224-2.278 3.338-3.417l3.26-3.491c2.164-2.337 4.267-4.73 6.4-7.093 2.076-2.42 4.188-4.805 6.233-7.25 2.047-2.445 4.082-4.9 6.038-7.431a1.004 1.004 0 00-1.466-1.36c-2.378 2.137-4.677 4.348-6.963 6.57-2.288 2.22-4.51 4.504-6.768 6.752-2.2 2.303-4.43 4.578-6.6 6.908l-3.24 3.51c-.563.639-1.131 1.272-1.697 1.907-.566-.635-1.135-1.268-1.698-1.907l-3.24-3.51c-2.16-2.34-4.38-4.625-6.597-6.91-2.238-2.268-4.475-4.537-6.77-6.752l-3.443-3.32c-1.175-1.082-2.325-2.187-3.521-3.248a1.005 1.005 0 00-1.466 1.36c.97 1.273 1.988 2.5 2.98 3.75l3.056 3.682c2.039 2.452 4.136 4.85 6.232 7.25 2.115 2.382 4.23 4.764 6.402 7.092l3.26 3.49c1.115 1.14 2.203 2.302 3.339 3.419a2.088 2.088 0 002.93 0z"></path>
+                    </svg></a>
+                    <ul class="sub-menu3" id="menu3">
+                        <li>
+                            <h1>My booking</h1>
+                            <div class="barra-pesquisa">
+                            <input type="text" id="from" name="from" placeholder="Booking reference">
+                            </div>
+                            <input type="text" id="from" name="from" placeholder="Last name of passanger">
+                            <div class="botao">
+                                <button type="submit" class="button">Find my booking</button>
+                                <button type="submit" class="button">Online check-in</button>
+                            </div>
+                            <a href="#">Flight status</a> <br>
+                            <a href="#">Flight information</a>
+                        </li>
+                        <li>
+                            <h1>Executive Club</h1>
+                            <a href="#">Log in to my Executive Club</a><br>
+                            <a href="#">Join the Club</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="linha-tele"><a href="#" onclick="clickMenu4()">Check-in &nbsp
+                    <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.522 47.3c1.136-1.116 2.224-2.278 3.338-3.417l3.26-3.491c2.164-2.337 4.267-4.73 6.4-7.093 2.076-2.42 4.188-4.805 6.233-7.25 2.047-2.445 4.082-4.9 6.038-7.431a1.004 1.004 0 00-1.466-1.36c-2.378 2.137-4.677 4.348-6.963 6.57-2.288 2.22-4.51 4.504-6.768 6.752-2.2 2.303-4.43 4.578-6.6 6.908l-3.24 3.51c-.563.639-1.131 1.272-1.697 1.907-.566-.635-1.135-1.268-1.698-1.907l-3.24-3.51c-2.16-2.34-4.38-4.625-6.597-6.91-2.238-2.268-4.475-4.537-6.77-6.752l-3.443-3.32c-1.175-1.082-2.325-2.187-3.521-3.248a1.005 1.005 0 00-1.466 1.36c.97 1.273 1.988 2.5 2.98 3.75l3.056 3.682c2.039 2.452 4.136 4.85 6.232 7.25 2.115 2.382 4.23 4.764 6.402 7.092l3.26 3.49c1.115 1.14 2.203 2.302 3.339 3.419a2.088 2.088 0 002.93 0z"></path>
+                    </svg></a>
+                    <ul class="sub-menu4" id="menu4">
+                        <li>
+                            <h1>My bookings</h1>
+                            <div class="barra-pesquisa">
+                                <input type="text" id="from" name="from" placeholder="Booking reference">
+                            </div>
+                            <input type="text" id="from" name="from" placeholder="Last name of passanger">
+                            <button type="submit" class="button">Online check-in</button>
+                            <a href="#">Flight status</a> <br>
+                            <a href="#">Flight information</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="linha-tele"><a href="#" onclick="clickMenu5()">Help &nbsp
+                    <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M33.522 47.3c1.136-1.116 2.224-2.278 3.338-3.417l3.26-3.491c2.164-2.337 4.267-4.73 6.4-7.093 2.076-2.42 4.188-4.805 6.233-7.25 2.047-2.445 4.082-4.9 6.038-7.431a1.004 1.004 0 00-1.466-1.36c-2.378 2.137-4.677 4.348-6.963 6.57-2.288 2.22-4.51 4.504-6.768 6.752-2.2 2.303-4.43 4.578-6.6 6.908l-3.24 3.51c-.563.639-1.131 1.272-1.697 1.907-.566-.635-1.135-1.268-1.698-1.907l-3.24-3.51c-2.16-2.34-4.38-4.625-6.597-6.91-2.238-2.268-4.475-4.537-6.77-6.752l-3.443-3.32c-1.175-1.082-2.325-2.187-3.521-3.248a1.005 1.005 0 00-1.466 1.36c.97 1.273 1.988 2.5 2.98 3.75l3.056 3.682c2.039 2.452 4.136 4.85 6.232 7.25 2.115 2.382 4.23 4.764 6.402 7.092l3.26 3.49c1.115 1.14 2.203 2.302 3.339 3.419a2.088 2.088 0 002.93 0z"></path>
+                    </svg></a>
+                    <ul class="sub-menu5" id="menu5">
+                        <li>
+                            <h1>Bookings</h1>
+                            <a href="#">Delays, cancellations and refunds</a><br>
+                            <a href="#">Lost baggage</a><br>
+                            <a href="#">Vouchers</a>
+                        </li>
+                        <li>
+                            <h1>Assistance</h1>
+                            <a href="#">Contacts and FAQs</a><br>
+                            <a href="#">Flight status</a><br>
+                            <a href="#">Disability and mobility assistance</a><br>
+                            <a href="#">Medical conditions and pregnancy</a><br>
+                            <a href="#">Travel assistance</a><br>
+                            <a href="#">Checking in and boarding</a>
+                        </li>
+                        <li>
+                            <h1>Travel News</h1>
+                            <a href="#">Lateste travel news</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="bandeira"><a href="#"><img src="img/portugal.png" alt="">&nbsp&nbspPortugal - English</a>
+                </li>
+            </ul>
+        </nav> 
+    </div>
+    </div>
+
+    <div class="background">
+        <div class="booking-container">
+            <h4>I'm searching for:</h4>
+            <form>
+                <div class="selection">
+                    <div>
+                        <input type="radio" id="flight" name="search" value="flight" checked>
+                        <label for="flight">Flight</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="flight-hotel" name="search" value="flight-hotel">
+                        <label for="flight-hotel">Flight + Hotel</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="flight-car" name="search" value="flight-car">
+                        <label for="flight-car">Flight + Car</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="hotel" name="search" value="hotel">
+                        <label for="hotel">Hotel</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="car" name="search" value="car">
+                        <label for="car">Car</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="status" name="search" value="status">
+                        <label for="status">Flight Status</label>
+                    </div>
+                </div>
+    
+                <!-- Flight Section -->
+                <div id="flight" class="content-box active">
+                    <div class="line1">
+                        <div class="inline">
+                            <div class="">
+                                <label for="fare">Fare</label>
+                                <select id="fare" name="fare">
+                                    <option value="return">Return</option>
+                                    <option value="one-way">One Way</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from" placeholder="Type 3 letters">
+                            </div>
+                            <div class="input-box">
+                                <label for="to">To</label>
+                                <input type="text" id="to" name="to" placeholder="Type 3 letters">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="line2">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="depart">Depart</label>
+                                <input type="date" id="depart" name="depart">
+                            </div>
+                            <div class="input-box">
+                                <label for="return">Return</label>
+                                <input type="date" id="return" name="return">
+                            </div>
+                        </div>
+    
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="class">Travel Class</label>
+                                <select id="class" name="class">
+                                    <option value="economy">Economy</option>
+                                    <option value="business">Business</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="passengers">Passengers</label>
+                                <select id="passengers" name="passengers">
+                                    <option value="1">1 adult</option>
+                                    <option value="2">2 adults</option>
+                                    <option value="3">3 adults</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="line3">
+                        <div class="links">
+                            <div class="link-item">
+                                <h4>Looking for more stops?</h4>
+                                <a href="#">Multi city & round the world ></a>
+                            </div>
+                            <div class="link-item">
+                                <h4>Need Inspiration?</h4>
+                                <a href="#">Find your next adventure ></a>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="button">Find flights</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Flight + Hotel Section -->
+                <div id="flight-hotel" class="content-box">
+                    <div class="line1">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from" placeholder="Type 3 letters">
+                            </div>
+                            <div class="input-box">
+                                <label for="to">To</label>
+                                <input type="text" id="to" name="to" placeholder="Type 3 letters">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="line2">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="depart">Depart</label>
+                                <input type="date" id="depart" name="depart">
+                            </div>
+                            <div class="input-box">
+                                <label for="return">Return</label>
+                                <input type="date" id="return" name="return">
+                            </div>
+                            <div class="input-box">
+                                <label for="class">Class</label>
+                                <select id="class" name="class">
+                                    <option value="economy">Economy</option>
+                                    <option value="business">Business</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="room">Rooms</label>
+                                <select id="room" name="room">
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4 Rooms</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line3">
+                        <div class="links">
+                            <div class="link-item">
+                                <h4>Want to tour the world?</h4>
+                                <a href="#">Create custom trip ></a>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="button">Find Flight + Hotel</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Flight + Car Section -->
+                <div id="flight-car" class="content-box">
+                    <div class="line1">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="from">From</label>
+                                <input type="text" id="from" name="from" placeholder="Type 3 letters">
+                            </div>
+                            <div class="input-box">
+                                <label for="to">To</label>
+                                <input type="text" id="to" name="to" placeholder="Type 3 letters">
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="line2">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="depart">Depart</label>
+                                <input type="date" id="depart" name="depart">
+                            </div>
+                            <div class="input-box">
+                                <label for="return">Return</label>
+                                <input type="date" id="return" name="return">
+                            </div>
+                            <div class="input-box">
+                                <label for="class">Travel Class</label>
+                                <select id="class" name="class">
+                                    <option value="economy">Economy</option>
+                                    <option value="business">Business</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="class">Passengers</label>
+                                <select id="class" name="class">
+                                    <option value="economy">2 adults</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="flight-car" class="content-box">
+                        <div class="input-box">
+                            <input type="checkbox" id="checkbox1" checked>
+                            <label for="checkbox1"><span class="custom-checkbox"></span>Driver aged between 30 and 70</label>
+                        </div>
+                    </div>
+                    
+                    <div class="line3">
+                        <div class="links">
+                            <div class="link-item">
+                                <h4>Want to tour the world?</h4>
+                                <a href="#">Create custom trip ></a>
+                            </div>
+                        </div>
+
+                        <p>In partnership with <img src="img/avis.svg" alt=""><img src="img/budget.svg" alt=""></p>
+
+                        <div class="button-container">
+                            <button type="submit" class="button">Find Flight + Car</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Hotel Section -->
+                <div id="hotel" class="content-box">
+                    <div class="line1">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="from">Destination</label>
+                                <input type="text" id="destination" name="destination" placeholder="Type 3 letters">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line2">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="in">Check-in</label>
+                                <input type="date" id="in" name="in">
+                            </div>
+                            <div class="input-box">
+                                <label for="out">Check-out</label>
+                                <input type="date" id="out" name="out">
+                            </div>
+                            <div class="input-box">
+                                <label for="room">Rooms</label>
+                                <select id="room" name="room">
+                                    <option value="1">1 Room</option>
+                                    <option value="2">2 Rooms</option>
+                                    <option value="3">3 Rooms</option>
+                                    <option value="4">4 Rooms</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line3">
+                        <div class="links">
+                            <div class="link-item">
+                                <h4>Want to tour the world?</h4>
+                                <a href="#">Create custom trip ></a>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="button">Find Hotels</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Car Section -->
+                <div id="car" class="content-box">
+
+                    <div class="input-box">
+                        <input type="checkbox" id="checkbox3">
+                        <label for="checkbox3"><span class="custom-checkbox"></span>Return car to a different location</label>
+                    </div>
+
+                    <div class="line1">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="from">Pick up from</label>
+                                <input type="text" id="pickup" name="pickup" placeholder="Type 3 letters">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="line2">
+                        <div class="inline">
+                            <div class="input-box">
+                                <label for="in">Pick up date</label>
+                                <input type="date" id="pickup" name="pickup">
+                            </div>
+                            <div class="input-box">
+                                <label for="time">Pick-up time</label>
+                                <select id="time" name="time">
+                                    <option value="1">00:00</option>
+                                    <option value="2">00:30</option>
+                                    <option value="3">01:00</option>
+                                    <option value="4">01:30</option>
+                                    <option value="5">02:00</option>
+                                    <option value="6">02:30</option>
+                                    <option value="7">03:00</option>
+                                    <option value="8">03:30</option>
+                                    <option value="9">04:00</option>
+                                    <option value="10">04:30</option>
+                                    <option value="11">05:00</option>
+                                    <option value="12">05:30</option>
+                                    <option value="13">06:00</option>
+                                    <option value="14">06:30</option>
+                                    <option value="15">07:00</option>
+                                    <option value="15">07:30</option>
+                                    <option value="16">08:00</option>
+                                    <option value="17">08:30</option>
+                                    <option value="18">09:00</option>
+                                    <option value="19">09:30</option>
+                                    <option value="20">10:00</option>
+                                    <option value="21">10:30</option>
+                                    <option value="22">11:00</option>
+                                    <option value="23">11:30</option>
+                                    <option value="24">12:00</option>
+                                    <option value="25">12:30</option>
+                                    <option value="26">13:00</option>
+                                    <option value="27">13:30</option>
+                                    <option value="28">14:00</option>
+                                    <option value="29">14:30</option>
+                                    <option value="30">15:00</option>
+                                    <option value="31">15:30</option>
+                                    <option value="32">16:00</option>
+                                    <option value="33">16:30</option>
+                                    <option value="34">17:00</option>
+                                    <option value="35">17:30</option>
+                                    <option value="36">18:00</option>
+                                    <option value="37">18:30</option>
+                                    <option value="38">19:00</option>
+                                    <option value="39">19:30</option>
+                                    <option value="40">20:00</option>
+                                    <option value="41">20:30</option>
+                                    <option value="42">21:00</option>
+                                    <option value="43">21:30</option>
+                                    <option value="44">22:00</option>
+                                    <option value="45">22:30</option>
+                                    <option value="46">23:00</option>
+                                    <option value="47">23:00</option>
+                                </select>
+                            </div>
+                            <div class="input-box">
+                                <label for="off">Drop-off</label>
+                                <input type="date" id="off" name="off">
+                            </div>
+                            <div class="input-box">
+                                <label for="time">Drop-off time</label>
+                                <select id="time" name="time">
+                                    <option value="1">00:00</option>
+                                    <option value="2">00:30</option>
+                                    <option value="3">01:00</option>
+                                    <option value="4">01:30</option>
+                                    <option value="5">02:00</option>
+                                    <option value="6">02:30</option>
+                                    <option value="7">03:00</option>
+                                    <option value="8">03:30</option>
+                                    <option value="9">04:00</option>
+                                    <option value="10">04:30</option>
+                                    <option value="11">05:00</option>
+                                    <option value="12">05:30</option>
+                                    <option value="13">06:00</option>
+                                    <option value="14">06:30</option>
+                                    <option value="15">07:00</option>
+                                    <option value="15">07:30</option>
+                                    <option value="16">08:00</option>
+                                    <option value="17">08:30</option>
+                                    <option value="18">09:00</option>
+                                    <option value="19">09:30</option>
+                                    <option value="20">10:00</option>
+                                    <option value="21">10:30</option>
+                                    <option value="22">11:00</option>
+                                    <option value="23">11:30</option>
+                                    <option value="24">12:00</option>
+                                    <option value="25">12:30</option>
+                                    <option value="26">13:00</option>
+                                    <option value="27">13:30</option>
+                                    <option value="28">14:00</option>
+                                    <option value="29">14:30</option>
+                                    <option value="30">15:00</option>
+                                    <option value="31">15:30</option>
+                                    <option value="32">16:00</option>
+                                    <option value="33">16:30</option>
+                                    <option value="34">17:00</option>
+                                    <option value="35">17:30</option>
+                                    <option value="36">18:00</option>
+                                    <option value="37">18:30</option>
+                                    <option value="38">19:00</option>
+                                    <option value="39">19:30</option>
+                                    <option value="40">20:00</option>
+                                    <option value="41">20:30</option>
+                                    <option value="42">21:00</option>
+                                    <option value="43">21:30</option>
+                                    <option value="44">22:00</option>
+                                    <option value="45">22:30</option>
+                                    <option value="46">23:00</option>
+                                    <option value="47">23:00</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <input type="checkbox" id="checkbox2" checked>
+                        <label for="checkbox2"><span class="custom-checkbox"></span>Driver aged between 30 and 70</label>
+                    </div>
+
+                    <div class="line3">
+                        <div class="links">
+                            <div class="link-item">
+                                <h4>Want to tour the world?</h4>
+                                <a href="#">Create custom trip ></a>
+                            </div>
+                        </div>
+
+                        <p>In partnership with <img src="img/avis.svg" alt=""><img src="img/budget.svg" alt=""></p>
+
+                        <div class="button-container">
+                            <button type="submit" class="button">Find Cars</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Flight Status Section -->
+                <div id="status" class="content-box">
+                    <form id="vooForm">
+                      <label for="tipoVoo">Type of flight</label>
+                      <select id="tipoVoo" required>
+                        <option value="ida">Outbound flight</option>
+                        <option value="regresso">Return flight</option>
+                      </select>
+                  
+                      <label for="dataVoo">Date of flight</label>
+                      <input type="date" id="dataVoo" required>
+                  
+                      <label for="cidade">Departure/return city</label>
+                      <input type="text" id="cidade" value="Lisboa" required>
+                  
+                      <button type="button" onclick="verificarEstado()">Flight Status</button>
+                    </form>
+                  
+                    <div class="resultado" id="resultado"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+
+
+    <div class="grid">
+        <div class="container">
+            <h1>Dreaming of London?</h1>
+            <h3>Plan an exciting city break and explore iconic cultural landmarks. Book your trip to London now.</h3>
+            <a href="#">Flights from London from €128 each-way ></a>
+            <h4>from Ponta Delgada, April 2025</h4>
+            <button class="search-button">Search London flights</button>
+            <h4>Passengers are responsible for checking Uk entry requirements | Terms and Conditions apply</h4>
+            <br>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="boxes3">
+        <div class="box">
+            <h1><a href="#">Manage My Booking</a></h1> <br>
+            <h2>Make changes to your travel plans, and view your booking details</h2>
+        </div>
+        <div class="box">
+            <h1><a href="#">Online Check-In</a></h1> <br>
+            <h2>Online check-in opens 24 hours before your flight departs</h2>
+        </div>
+        <div class="box">
+            <h1><a href="#">Flight Status</a></h1> <br>
+            <h2>Check the latest status of our flights over the next 10 days</h2>
+        </div>
+    </div>
+
+    <br><br>
+
+    <div class="boxes-columns">
+
+        <div class="box1">
+            <img src="img/1.jpg" alt="Head of to the UK">
+            <h2>Head of to the UK</h2>
+            <h3>Take off to the people and places you love in the UK. Explore designer-packed shopping streets and the historic sights. Plan your next trip now.</h3>
+            <li><a href="#">Flights to London from €126 each-way > </a></li>
+            <h4>from Ponta Delgada, April 2025 <br> Holiday price includes return flights and generous baggage allowance</h4>
+            <li><a href="#">Search more offers > </a></li>
+        </div>
+
+        <div class="box1">
+            <img src="img/2.jpg" alt="Sustainability at our heart">
+            <h2>Sustainability at our heart</h2>
+            <h3>With a focus on people, planet and responsible business, we’re transforming our airline for a more sustainable future.</h3>
+            <br><br><br><br><br><br><br><br><br>
+            <li><a href="#">About BA Better World > </a></li>
+        </div>
+
+        <div class="box2">
+            <img src="img/3.jpg" alt="USA holidays">
+            <h2>USA holidays</h2>
+            <h3>Secure your holiday with a low deposit and spread the cost with flexible payments up to 4 weeks before departure.</h3>
+            <h4>Prices include a generous baggage allowance, all mandatory charges and 24-hour support.</h4><br>
+            <li><a href="#">Search holiday deals > </a></li>
+        </div>
+
+        <div class="box2">
+            <img src="img/4.jpg" alt="Fly-drive adventures">
+            <h2>Fly-drive adventures</h2> 
+            <h3>Giving you the freedom to explore new places with great value UK fly-drives and 7 days car hire for the price of 5 in the USA.</h3> 
+            <h4>Prices include a generous baggage allowance, all mandatory charges and 24-hour support so you can drive away with ease.</h4>
+            <li><a href="#">Let's go ></a></li>
+        </div>
+
+        <div class="box3">
+            <img src="img/5.jpg" alt="Find our cheapest flights">
+            <h2>Find our cheapest flights</h2> 
+            <li><a href="#">Flights to Miami from €394 return > </a></li> 
+            <h4>from Lisbon, January 2025</h4> 
+            <li><a href="#">Flights to San Francisco from €581 return > </a></li> 
+            <h4>from Lisbon, December 2024</h4> 
+            <br><br><br><br><br>
+            <li><a href="#">Find more destinations > </a></li>
+        </div>
+
+        <div class="box3">
+            <img src="img/6.avif" alt="Travelin style">
+            <h2>Travelin style</h2> 
+            <h3>Enjoy the comforts of premium economy or business and arrive refreshed and ready to start your trip.</h3> 
+            <li><a href="#">Flights in Premium Economy to New York from €1015 return > </a></li> 
+            <h4>from Lisbon, March 2025</h4> 
+            <li><a href="#">Flights in Business to Boston from €2683 return > </a></li> 
+            <h4>from Lisbon, December 2024</h4> 
+            <li><a href="#">Search our cabins > </a></li>    
+        </div>
+
+        <div class="box4">
+            <img src="img/7.jpg" alt="If you need to contact us">
+            <h2>If you need to contact us</h2> 
+            <h3>We’re always here to help. Our friendly Customer Services team are on hand to answer all of your queries.</h3><br>
+            <li><a href="#">How to contact us > </a></li>
+        </div>
+
+        <div class="box4">
+            <img src="img/8.avif" alt="Original in every way">
+            <h2>Original in every way</h2> 
+            <h3>We all travel for a million different reasons and each one is unique - just like every member of our staff, every moment of our service and every one of you.</h3>
+            <li><a href="#">Find out more > </a></li>
+        </div>
+
+        <div class="box5">
+            <img src="img/9.jpg" alt="Join our Executive Club">
+            <h2>Join our Executive Club</h2> 
+            <h3>Enjoy booking quicker, paying with Avios, earning rewards and receiving special offers as an Executive Club Member.</h3>
+            <li><a href="#">Join us now > </a></li>
+        </div>
+        
+    </div>
+
+    <footer>
+        <br>
+        <li><a href="#">Help and contacts</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Accessibility and site help</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Web security</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Privacy policy</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Cookie Policy</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Legal</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">About BA</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Media Centre</a></li>&nbsp&nbsp&nbsp| <br>
+        <li><a href="#">Costumer Commitment</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Careers</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Sustainability</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Modern Slavery statement</a></li>&nbsp&nbsp&nbsp|
+        <li><a href="#">Iberia.com</a></li> <br>
+        <br>
+        <ul>
+            <li><a href="#"><img src="img/instagram.png" alt="" data-test-id="instagram"></a></li>
+            <li><a href="#"><img src="img/facebook.png" alt="" data-test-id="facebook"></a></li>
+            <li><a href="#"><img src="img/twitter.png" alt="" data-test-id="twitter"></a></li>
+            <li><a href="#"><img src="img/linkedin.png" alt="" data-test-id="linkedin"></a></li>
+            <li><a href="#"><img src="img/youtube.webp" alt="" data-test-id="youtube"></a></li>
+            <li><a href="#"><img src="img/tiktok.png" alt="" data-test-id="tiktok"></a></li>
+        </ul>
+        <h1>&copy;  British Airways - all rights reserved</h1> <br>
+        <img src="img/logobranco.webp" alt="2">
+    </footer>
+</body>
+</html>

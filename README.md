@@ -1,14 +1,19 @@
 # LEI-ISEC
 
-Repository containing academic projects, practical assignments and coursework developed throughout my Bachelor's degree in Computer Engineering at ISEC (Instituto Superior de Engenharia de Coimbra).
+Repositório que reúne projetos académicos, trabalhos práticos e outros materiais desenvolvidos ao longo da Licenciatura em Engenharia Informática no ISEC (Instituto Superior de Engenharia de Coimbra).
 
-## About
+## Sobre
 
-This repository serves as an archive of my academic work, documenting the projects, technologies and technical skills developed throughout my degree.
+Este repositório serve como arquivo do meu percurso académico, documentando os projetos, as tecnologias e as competências técnicas desenvolvidas ao longo da licenciatura.
 
-## Repository Structure
+## Especialização
 
-The repository is organized by academic year, semester and course unit, making it easy to navigate through the coursework and projects developed throughout the degree.
+No âmbito da licenciatura, escolhi o ramo de **Redes e Administração de Sistemas**, com foco nas áreas de redes informáticas, administração de sistemas e infraestruturas tecnológicas.
+
+## Estrutura do Repositório
+
+O repositório está organizado por ano letivo, semestre e unidade curricular, facilitando a consulta dos conteúdos, trabalhos práticos e projetos desenvolvidos ao longo da licenciatura.
 
 ---
-*This repository is intended for educational and portfolio purposes.*
+
+*Este repositório destina-se a fins educativos e de portefólio académico.*

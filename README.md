@@ -8,9 +8,9 @@ This repository serves as an archive of my academic work, documenting the projec
 
 ## Repository Structure
 
+The repository is organized by academic year, semester and course unit, making it easy to navigate through the coursework and projects developed throughout the degree.
 
-
-## 🎓 Institution
+## Institution
 
 **ISEC — Instituto Superior de Engenharia de Coimbra**  
 BSc in Computer Engineering (*Licenciatura em Engenharia Informática*)
